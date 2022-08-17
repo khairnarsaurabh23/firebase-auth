@@ -1,16 +1,29 @@
+//hooks and react import
 import React, { useRef, useState } from "react"
+
+//react bootstrap imports
 import { Form, Button, Card, Alert } from "react-bootstrap"
+
+//AuthContext import
 import { useAuth } from "../contexts/AuthContext"
+
+//reacr router imports
 import { Link } from "react-router-dom"
 
+
+//ForgotPassword component
 export default function ForgotPassword() {
+  //useRef hook is used to store and pass email to the firebase as an object
   const emailRef = useRef()
   const { resetPassword } = useAuth()
   const [error, setError] = useState("")
+  //used for success message prompt
   const [message, setMessage] = useState("")
+  //used to disable the submit button while processing
   const [loading, setLoading] = useState(false)
 
   async function handleSubmit(e) {
+    //prevent default behaviour of the browser
     e.preventDefault()
 
     try {
@@ -18,9 +31,9 @@ export default function ForgotPassword() {
       setError("")
       setLoading(true)
       await resetPassword(emailRef.current.value)
-      setMessage("Check your inbox for further instructions")
+      setMessage("Email sent successfuly")
     } catch {
-      setError("Failed to reset password")
+      setError("Error occured! Please try again later")
     }
 
     setLoading(false)

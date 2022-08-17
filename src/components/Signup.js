@@ -1,17 +1,31 @@
+//import hooks and react
 import React, { useRef, useState } from "react"
+
+//react bootstarp import
 import { Form, Button, Card, Alert } from "react-bootstrap"
+
+//useAuth context import
 import { useAuth } from "../contexts/AuthContext"
+
+//react router imports
 import { Link, useHistory } from "react-router-dom"
 
+
+//signup component
 export default function Signup() {
+  //useRef is used to store and pass email passwd and 
+  // confirmpasswd values
   const emailRef = useRef()
   const passwordRef = useRef()
   const passwordConfirmRef = useRef()
+
   const { signup } = useAuth()
+  //states
   const [error, setError] = useState("")
   const [loading, setLoading] = useState(false)
   const history = useHistory()
 
+  //handle submit functionality
   async function handleSubmit(e) {
     e.preventDefault()
 
@@ -21,13 +35,15 @@ export default function Signup() {
 
     try {
       setError("")
+      //used to disable the submit button while processing
+      //hence user will not create many accs accedently
       setLoading(true)
       await signup(emailRef.current.value, passwordRef.current.value)
       history.push("/")
     } catch {
       setError("Failed to create an account")
     }
-
+    //enble the submit button after proccessing the req
     setLoading(false)
   }
 
@@ -50,7 +66,7 @@ export default function Signup() {
               <Form.Label>Password Confirmation</Form.Label>
               <Form.Control type="password" ref={passwordConfirmRef} required />
             </Form.Group>
-            <Button disabled={loading} className="w-100" type="submit">
+            <Button disabled={loading} className="w-100 btn btn-warning" type="submit">
               Sign Up
             </Button>
           </Form>

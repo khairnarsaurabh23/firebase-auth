@@ -1,13 +1,25 @@
+//impoort react
 import React, { useRef, useState } from "react"
+
+//import react bootstrap
 import { Form, Button, Card, Alert } from "react-bootstrap"
+
+//import useAuth context
 import { useAuth } from "../contexts/AuthContext"
+
+//react router import
 import { Link, useHistory } from "react-router-dom"
 
+//updateProfile component
 export default function UpdateProfile() {
+  //useRef is used to store and pass the email and 
+  //other values to the firebase
   const emailRef = useRef()
   const passwordRef = useRef()
   const passwordConfirmRef = useRef()
+
   const { currentUser, updatePassword, updateEmail } = useAuth()
+  //state's
   const [error, setError] = useState("")
   const [loading, setLoading] = useState(false)
   const history = useHistory()
@@ -18,6 +30,8 @@ export default function UpdateProfile() {
       return setError("Passwords do not match")
     }
 
+    //array is used to store function calls
+    //so the promise can process them accordingly
     const promises = []
     setLoading(true)
     setError("")
@@ -29,6 +43,7 @@ export default function UpdateProfile() {
       promises.push(updatePassword(passwordRef.current.value))
     }
 
+    //process the above function calls accordingly
     Promise.all(promises)
       .then(() => {
         history.push("/")
@@ -73,7 +88,7 @@ export default function UpdateProfile() {
                 placeholder="Leave blank to keep the same"
               />
             </Form.Group>
-            <Button disabled={loading} className="w-100" type="submit">
+            <Button disabled={loading} className="w-100 btn btn-warning" type="submit">
               Update
             </Button>
           </Form>

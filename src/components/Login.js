@@ -45,7 +45,7 @@ export default function Login() {
         <Card.Body>
           <h2 className="text-center mb-4">Log In</h2>
           {error && <Alert variant="danger">{error}</Alert>}
-          {message && <Alert variant="danger">{message}</Alert>}
+          {message} && <Alert variant="danger">{message}</Alert>}
           <Form onSubmit={handleSubmit}>
             <Form.Group id="email">
               <Form.Label>Email</Form.Label>
@@ -70,3 +70,4 @@ export default function Login() {
     </>
   )
 }
+

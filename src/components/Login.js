@@ -1,4 +1,73 @@
-//hooks and react import
+
+import { useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
+import "./css/login.css";
+const Login = () => {
+  const [user, setUser] = useState({
+    email: "",
+    pass: "",
+  });
+
+  const navigate = useNavigate();
+  return (
+    <div>
+      <div class="login-wrapper">
+        <div class="login">
+          <h1>Login</h1>
+          <div class="login-credentials">
+            <div class="email">
+              <p for="email-label">Email Address</p>
+              <input
+                type="email"
+                class="email-validate"
+                id="email-label"
+                placeholder="Enter Valid Email ID"
+                onChange={(e) => setUser({ ...user, email: e.target.value })}
+                required
+              />
+            </div>
+            <div class="password">
+              <p for="password-label">Password</p>
+              <input
+                type="password"
+                class="pswrd-validate"
+                id="password-label"
+                onChange={(e) => setUser({ ...user, pass: e.target.value })}
+                required
+              />
+            </div>
+            <div class="reset-details">
+              <div>
+                <input type="checkbox" class="checkbox" />
+                Remember Me
+              </div>
+
+              <a href="" class="forgot-pswrd-link">
+                Forget your Password?
+              </a>
+            </div>
+            <button class="login-btn">Login</button>
+            <p className="paragraph">OR</p>
+            <button class="login-btn login-guest-btn center-flex">
+              <img
+                src="google-icon.png"
+                alt=""
+                className="apex-avatar avatar-round-sm"
+              />
+              Continue with Google
+            </button>
+
+            <Link class="have-account-link" to="/signup">
+              Create new Account?
+            </Link>
+          </div>
+        </div>
+      </div>
+    </div >
+  );
+};
+export { Login };
+/*//hooks and react import
 import React, { useRef, useState } from "react"
 
 //react bootstrap import
@@ -70,3 +139,4 @@ export default function Login() {
     </>
   )
 }
+*/

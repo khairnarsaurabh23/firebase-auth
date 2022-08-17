@@ -1,4 +1,4 @@
-//import hooks and react
+/*//import hooks and react
 import React, { useRef, useState } from "react"
 
 //react bootstarp import
@@ -78,3 +78,58 @@ export default function Signup() {
     </>
   )
 }
+*/
+
+import { Link } from "react-router-dom";
+import "../Login/login.css";
+const Signup = () => {
+  return (
+    <div>
+      <div class="login-wrapper">
+        <div class="login">
+          <h1>SignUp</h1>
+          <div class="login-credentials">
+
+            <div class="email">
+              <p for="">Email Address</p>
+              <input
+                type="email"
+                class="email-validate"
+                placeholder="Enter Valid Email ID"
+              />
+            </div>
+            <div class="password">
+              <p for="">Password</p>
+              <input type="password" class="pswrd-validate" />
+            </div>
+            <div class="password">
+              <p for="">Confirm Password</p>
+              <input type="password" class="pswrd-validate" />
+            </div>
+            <div class="reset-details">
+              <div>
+                <input type="checkbox" class="checkbox" />I accept all the Terms
+                and conditions
+              </div>
+            </div>
+            <button class="login-btn">Create Account</button>
+            <p className="paragraph">OR</p>
+            <button class="login-btn login-guest-btn center-flex">
+              <img
+                src="google-icon.png"
+                alt=""
+                className="apex-avatar avatar-round-sm"
+              />
+              Continue with Google
+            </button>
+            <Link class="have-account-link" to="/">
+              Already have Account?
+            </Link>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+};
+export { Signup };
+

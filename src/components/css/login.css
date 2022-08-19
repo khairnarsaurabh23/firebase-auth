@@ -2,7 +2,7 @@
     width: fit-content;
     background-color: #2e2963;
     margin: auto;
-    margin-top: 7.5rem;
+    /* margin-top: 7.5rem; */
     border-radius: 1rem;
     color: white;
 }
@@ -40,9 +40,10 @@
 
 .email,
 .password {
-    display: flex;
-    flex-direction: column;
-    gap: 5px;
+    display: inline-block;
+    /* display: flex;
+    flex-direction: row; */
+    /* gap: 5px; */
 }
 
 .reset-details {

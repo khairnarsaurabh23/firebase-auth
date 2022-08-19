@@ -79,13 +79,8 @@ export default function Login() {
                 />
               </div>
               <div class="reset-details">
-                <div>
-                  <input type="checkbox" class="checkbox" />
-                  Remember Me
-                </div>
-
                 <Link to="/forget-password" class="forgot-pswrd-link">
-                  Forget your Password?
+                  Forget Password?
                 </Link>
               </div>
               <button disabled={loading} type="submit" class="login-btn">Login</button>
@@ -98,14 +93,14 @@ export default function Login() {
                 />
                 Continue with Google
               </button>
-
+{/* 
               <Link class="have-account-link" to="/signup">
                 Create new Account?
-              </Link>
+              </Link> */}
             </div>
           </form>
         </div>
-          {message} && <Alert variant="danger">{message}</Alert>}
+          {/* {message} && <Alert variant="danger">{message}</Alert>
           <Form onSubmit={handleSubmit}>
             <Form.Group id="email">
               <Form.Label>Email</Form.Label>
@@ -121,13 +116,12 @@ export default function Login() {
           </Form>
           <div className="w-100 text-center mt-3">
             <Link to="/forgot-password">Forgot Password?</Link>
-          </div>
-        </Card.Body>
-      </Card>
-      <div className="w-100 text-center mt-2">
+          </div> */}
+      <div className="w-100 text-center">
         Need an account? <Link to="/signup">Sign Up</Link>
       </div>
     </div >
+  </div>
   )
 }
 
